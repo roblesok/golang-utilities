@@ -12,7 +12,7 @@ func TestEqual(t *testing.T) {
 		}
 	})
 	t.Run("different slices", func(t *testing.T) {
-		got = Equal([]int{1, 2}, nil)
+		got = Equal([]int{1, 2}, []int{1, 3})
 		expected = false
 		if got != expected {
 			t.Errorf("Got: %v. Expected: %v", got, expected)
@@ -25,4 +25,12 @@ func TestEqual(t *testing.T) {
 			t.Errorf("Got: %v. Expected: %v", got, expected)
 		}
 	})
+	t.Run("different size", func(t *testing.T) {
+		got = Equal([]int{1, 2}, nil)
+		expected = false
+	})
+	if got != expected {
+		t.Errorf("Got: %v. Expected: %v", got, expected)
+	}
+
 }

@@ -18,4 +18,12 @@ func TestInsert(t *testing.T) {
 			t.Errorf("Got: %v. Expected: %v\n", got, expected)
 		}
 	})
+	t.Run("Insert with right cap", func(t *testing.T) {
+		s := make([]int, 0, 3)
+		got = Insert(s, 0, []int{1, 2, 3}...)
+		expected = []int{1, 2, 3}
+		if !Equal(got, expected) {
+			t.Errorf("Got: %v. Expected: %v\n", got, expected)
+		}
+	})
 }
